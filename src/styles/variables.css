@@ -1,0 +1,53 @@
+:root {
+  /* Surface colors */
+  --bg-primary: #000000;
+  --bg-surface-1: #060a12;
+  --bg-surface-2: #0a101d;
+  --bg-surface-card: rgba(10, 16, 28, 0.72);
+  --bg-surface-card-hover: rgba(14, 22, 38, 0.88);
+  
+  /* Blue Palette */
+  --blue-deep: #1e3a8a;
+  --blue-primary: #2563eb;
+  --blue-electric: #3b82f6;
+  --blue-sky: #60a5fa;
+  --blue-ice: #93c5fd;
+  
+  /* Name gradient stops */
+  --blue-name-1: #9ec2ff;
+  --blue-name-2: #3b82f6;
+  --blue-name-3: #1d4ed8;
+
+  /* Atmospheric glows & borders */
+  --blue-glow-subtle: rgba(59, 130, 246, 0.12);
+  --blue-glow-medium: rgba(37, 99, 235, 0.28);
+  --blue-glow-intense: rgba(59, 130, 246, 0.55);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.15);
+  --border-blue: rgba(59, 130, 246, 0.32);
+  --border-blue-hover: rgba(96, 165, 250, 0.65);
+  
+  /* Text colors */
+  --text-white: #ffffff;
+  --text-silver: #e2e8f0;
+  --text-slate: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  /* Typography Tokens */
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-hero-name: 'Anton', -apple-system, sans-serif;
+  --font-menu: 'Anton', -apple-system, sans-serif;
+  --font-wordmark: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-script: 'Caveat', cursive;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Spacing Rhythm Targets */
+  --section-padding-v: clamp(56px, 7vh, 72px);
+  --section-gap-grid: 24px;
+  --section-header-gap: 32px;
+
+  /* Transitions */
+  --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,0 +1,129 @@
+/* ==========================================================================
+   GLOBAL STYLES & IMPORTS
+   ========================================================================== */
+
+@import './variables.css';
+@import './buttons.css';
+@import './header.css';
+@import './menu.css';
+@import './hero.css';
+@import './projects.css';
+@import './project-carousel.css';
+@import './velaris.css';
+@import './cursor.css';
+@import './modal.css';
+@import './about.css';
+@import './cards.css';
+@import './experience.css';
+@import './creator.css';
+@import './education.css';
+@import './cta-banner.css';
+@import './beam-footer.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Coordinated Section Scroll Margins to prevent Fixed Header Logo/Menu collisions */
+section[id],
+#hero,
+#work,
+#about,
+#experience,
+#creator,
+#education,
+#contact {
+  scroll-margin-top: clamp(84px, 11vh, 108px);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #040814;
+  color: var(--text-white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+::selection {
+  background-color: var(--blue-primary);
+  color: #ffffff;
+}
+
+/* Base App Wrapper — transparent to let continuous Velaris WebGL atmosphere shine through */
+.portfolio-app {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: transparent;
+  overflow-x: hidden;
+}
+
+/* Section transparent backings so the continuous Velaris atmosphere runs seamlessly from Hero through Footer */
+.projects-section,
+.project-carousel-section,
+.about-section,
+.experience-section,
+.creator-section,
+.education-section {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Translucent CTA and Footer so the blue shader remains visible */
+.fcb-section {
+  background: transparent !important;
+}
+
+.beam-footer-section {
+  background: transparent !important;
+  backdrop-filter: none;
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::highlight(portfolio-pending) {
+  color: transparent;
+  text-shadow: none;
+}

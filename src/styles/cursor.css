@@ -1,0 +1,22 @@
+/* ==========================================================================
+   TUBES CURSOR (CATALOGUE #02)
+   Multi-strand luminous curved tube ribbons following fine pointer.
+   Preserves native pointer precision and input cursors with zero obstruction.
+   ========================================================================== */
+
+.tubes-cursor-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none !important;
+  z-index: 9998;
+  display: block;
+  background: transparent;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .tubes-cursor-canvas {
+    display: none !important;
+  }
+}

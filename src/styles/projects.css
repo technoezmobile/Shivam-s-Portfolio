@@ -1,0 +1,353 @@
+/* ==========================================================================
+   SELECTED WORK / PROJECTS SECTION (CORRECTED HIERARCHY)
+   ========================================================================== */
+
+.projects-section {
+  position: relative;
+  width: 100%;
+  padding: var(--section-padding-v) 5%;
+  box-sizing: border-box;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--section-header-gap);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.section-index-badge {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--blue-sky);
+  text-transform: uppercase;
+}
+
+.section-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.section-header-intro {
+  max-width: 440px;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-slate);
+  margin: 0;
+}
+
+/* ==========================================================================
+   4 LARGE FEATURED CARDS (2x2 Grid)
+   ========================================================================== */
+
+.large-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.project-card-large {
+  position: relative;
+  border-radius: 20px;
+  background: var(--bg-surface-card);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.project-card-large:hover {
+  transform: translateY(-4px);
+  border-color: rgba(96, 165, 250, 0.55);
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.22), 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+.card-large-header {
+  padding: 18px 24px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-num-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.project-number {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--blue-sky);
+  letter-spacing: 0.05em;
+}
+
+.project-title {
+  font-family: var(--font-heading);
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.project-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.card-expand-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(30, 58, 138, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-sky);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.project-card-large:hover .card-expand-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(37, 99, 235, 0.5);
+  color: #ffffff;
+}
+
+.card-large-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #040812;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.project-card-large:hover .project-featured-img {
+  transform: scale(1.025);
+}
+
+.card-large-footer {
+  padding: 14px 24px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.project-tech-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tech-tag-badge {
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--text-slate);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.project-action-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue-sky);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   6 SECONDARY COMPACT EDITORIAL CARDS (3x2 Grid)
+   ========================================================================== */
+
+.compact-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.project-card-compact {
+  position: relative;
+  border-radius: 16px;
+  background: rgba(10, 16, 28, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-height: 105px;
+  box-sizing: border-box;
+}
+
+.project-card-compact:hover {
+  background: rgba(15, 24, 42, 0.92);
+  border-color: rgba(59, 130, 246, 0.45);
+  transform: translateY(-2.5px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.18);
+}
+
+.compact-thumb-box {
+  width: 105px;
+  height: 68px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #030712;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compact-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.compact-text-icon-tile {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.25) 0%, rgba(6, 11, 20, 0.9) 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-sky);
+}
+
+.compact-info-block {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.compact-top-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.compact-number {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--blue-sky);
+  letter-spacing: 0.05em;
+}
+
+.compact-category {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compact-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compact-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-slate);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compact-arrow-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-sky);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.project-card-compact:hover .compact-arrow-box {
+  transform: translateX(2px) translateY(-2px);
+  background: var(--blue-primary);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .compact-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .large-projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-section {
+    padding: var(--section-padding-v) 4%;
+  }
+}

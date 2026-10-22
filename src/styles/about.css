@@ -1,0 +1,223 @@
+/* ==========================================================================
+   ABOUT & CAPABILITIES SECTION (REFINED FIDELITY)
+   ========================================================================== */
+
+.about-section {
+  position: relative;
+  width: 100%;
+  padding: var(--section-padding-v) 5%;
+  box-sizing: border-box;
+  background-color: var(--bg-surface-1);
+  border-top: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.about-grid-layout {
+  display: grid;
+  grid-template-columns: 340px 1.15fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+/* Portrait Card with Blue Glow */
+.about-portrait-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background-color: #0b1220;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  box-shadow: 
+    0 16px 45px rgba(0, 0, 0, 0.7),
+    0 0 35px rgba(37, 99, 235, 0.28);
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Center Content: Defined Readable Deep-Navy Bio Card */
+.about-bio-card {
+  padding: clamp(28px, 3.5vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.about-main-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.14;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+}
+
+.about-bio-text {
+  font-size: 1.02rem;
+  line-height: 1.74;
+  color: #d1d5db;
+  margin: 0;
+}
+
+/* Right Column: 3 Distinct Interactive Capability Cards */
+.capabilities-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.capability-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 18px 22px;
+  box-sizing: border-box;
+}
+
+.capability-icon-pill {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(30, 58, 138, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-sky);
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.3);
+}
+
+.capability-content {
+  flex: 1;
+}
+
+.capability-title {
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.capability-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+/* ==========================================================================
+   AUTHENTIC TOOLKIT STRIP (Brand Tiles with SVGs)
+   ========================================================================== */
+
+.toolkit-container {
+  padding: 24px 28px;
+  border-radius: 18px;
+  background: rgba(8, 14, 24, 0.7);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.toolkit-header-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--blue-sky);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.toolkit-items-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex: 1;
+}
+
+.toolkit-tile {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 10px;
+  background: rgba(14, 22, 38, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-silver);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.toolkit-tile:hover {
+  background: rgba(30, 58, 138, 0.35);
+  border-color: rgba(96, 165, 250, 0.5);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+}
+
+.toolkit-tile-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .about-grid-layout {
+    grid-template-columns: 300px 1fr;
+  }
+
+  .capabilities-column {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-portrait-card {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .about-section {
+    padding: var(--section-padding-v) 4%;
+  }
+
+  .toolkit-container {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

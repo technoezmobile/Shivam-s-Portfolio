@@ -1,0 +1,362 @@
+/* ==========================================================================
+   STERLING GATE NAVIGATION OVERLAY (COMPACT, VIEWPORT-FITTING BLUE RE-THEMED)
+   ========================================================================== */
+
+.sterling-gate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(4, 9, 22, 0.74);
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.16) 0%, transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(16px, 2.5vh, 32px) clamp(16px, 4vw, 48px);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.sterling-gate-container {
+  width: 100%;
+  max-width: 1040px;
+  height: 100%;
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  box-sizing: border-box;
+  gap: clamp(10px, 1.5vh, 20px);
+}
+
+/* Header bar inside overlay: Compact & balanced */
+.sterling-gate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: clamp(10px, 1.4vh, 16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.sterling-brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.sterling-brand-text-col {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sterling-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.sterling-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--text-white);
+  white-space: nowrap;
+}
+
+.sterling-brand-role {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sterling-close-wrap {
+  flex: 0 0 auto;
+}
+
+/* Nav rows: Compact, proportional 3-column structured grid (number, flexible label, fixed arrow) */
+.sterling-nav-rows {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1vh, 12px);
+  margin: 0;
+  width: 100%;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+.sterling-nav-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(14px, 2vw, 24px);
+  padding: clamp(10px, 1.4vh, 16px) clamp(16px, 2.2vw, 26px);
+  border-radius: 14px;
+  background: rgba(8, 16, 32, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(59, 130, 246, 0.24);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.14);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.sterling-row-num {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue-sky);
+  letter-spacing: 0.05em;
+  width: 28px;
+  flex-shrink: 0;
+}
+
+.sterling-row-label-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  min-width: 0;
+}
+
+.sterling-row-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vh, 2.15rem);
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  color: var(--text-white);
+  transition: color 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.sterling-row-tagline {
+  font-size: clamp(0.85rem, 1.3vh, 0.98rem);
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.sterling-row-arrow {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.3);
+  transition: transform 0.22s ease, color 0.22s ease;
+  justify-self: end;
+  flex-shrink: 0;
+}
+
+/* Hover & Focus */
+@media (hover: hover) and (pointer: fine) {
+  .sterling-nav-row:hover {
+    background: rgba(14, 26, 52, 0.8);
+    border-color: rgba(96, 165, 250, 0.7);
+    box-shadow: 
+      0 8px 28px rgba(0, 0, 0, 0.55), 
+      0 0 22px rgba(37, 99, 235, 0.35), 
+      inset 0 1px 2px rgba(255, 255, 255, 0.32);
+    transform: translateX(6px);
+  }
+
+  .sterling-nav-row:hover .sterling-row-title {
+    color: var(--blue-sky);
+    text-shadow: 0 0 24px rgba(59, 130, 246, 0.65);
+  }
+
+  .sterling-nav-row:hover .sterling-row-arrow {
+    color: var(--blue-sky);
+    transform: translateX(6px);
+  }
+}
+
+.sterling-nav-row:focus-visible {
+  outline: 2px solid var(--blue-sky);
+  outline-offset: 3px;
+  background: rgba(14, 26, 52, 0.8);
+  border-color: rgba(96, 165, 250, 0.7);
+}
+
+.sterling-nav-row:active {
+  transform: scale(0.99) translateX(3px);
+}
+
+/* Footer inside overlay: Compact & balanced */
+.sterling-gate-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: clamp(10px, 1.4vh, 16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 14px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.sterling-footer-col {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sterling-footer-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sterling-social-pills-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .sterling-gate-overlay {
+    padding: max(12px, env(safe-area-inset-top, 12px)) 16px max(16px, env(safe-area-inset-bottom, 16px)) 16px;
+    align-items: center;
+  }
+
+  .sterling-gate-container {
+    height: 100%;
+    max-height: 96vh;
+    padding-top: 4px;
+    padding-bottom: 8px;
+    width: 100%;
+    max-width: 100%;
+    gap: 8px;
+  }
+
+  .sterling-brand-role {
+    display: none;
+  }
+
+  .sterling-brand-name {
+    font-size: 1.0rem;
+  }
+
+  .sterling-logo-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sterling-nav-rows {
+    gap: 6px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .sterling-nav-row {
+    grid-template-columns: 22px 1fr 20px;
+    gap: 10px;
+    padding: clamp(8px, 1.3vh, 12px) 14px;
+    border-radius: 12px;
+    width: 100%;
+  }
+
+  .sterling-row-num {
+    font-size: 0.85rem;
+    width: 22px;
+  }
+
+  .sterling-row-tagline {
+    display: none;
+  }
+
+  /* Responsive label scaling fitting within one viewport */
+  .sterling-row-title {
+    font-size: clamp(1.15rem, 4.2vw, 1.45rem);
+    letter-spacing: 0.02em;
+  }
+
+  .sterling-row-arrow {
+    font-size: 1.15rem;
+  }
+
+  .sterling-gate-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding-top: 8px;
+    width: 100%;
+  }
+
+  .sterling-footer-col {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .sterling-social-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .sterling-social-pills-row .blue-glass-btn {
+    flex: 1 1 calc(50% - 6px);
+    justify-content: center;
+    font-size: 0.82rem;
+    padding: 6px 8px;
+    height: 36px;
+  }
+
+  .sterling-footer-btn-wrap .blue-glass-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.82rem;
+    padding: 6px 10px;
+    height: 36px;
+  }
+}
+
+/* Allow scrolling gracefully on short landscape screens */
+@media (max-height: 560px) {
+  .sterling-gate-overlay {
+    align-items: flex-start;
+  }
+  .sterling-gate-container {
+    height: auto;
+    min-height: auto;
+    padding-top: 12px;
+    padding-bottom: 24px;
+  }
+}
+
+.sterling-close-wrap .blue-glass-btn {
+  font-size: 1.35rem;
+  min-height: 48px;
+}
+.sterling-gate-header { min-width: 0; }
+.sterling-gate-container { min-width: 0; }
+.sterling-brand-text-col { flex-wrap: wrap; }
+.sterling-nav-row { min-width: 0; }
+@media (max-width: 600px) {
+  .sterling-close-wrap .blue-glass-btn { font-size: 1.15rem; min-width: 104px; padding-inline: 14px; }
+  .sterling-brand-role { display: none; }
+  .sterling-brand-name { font-size: .84rem; white-space: normal; }
+  .sterling-nav-row { grid-template-columns: 24px minmax(0, 1fr) 20px; gap: 8px; }
+  .sterling-row-title { font-size: clamp(1.12rem, 5vw, 1.45rem); }
+}

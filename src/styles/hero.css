@@ -1,0 +1,445 @@
+/* ==========================================================================
+   HERO SECTION STYLING (FULL-SCREEN VIEWPORT-HEIGHT VIDEO HERO)
+   Enlarged typography, continuous shader atmosphere reveal, and safe controls.
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: transparent; /* Allows global Velaris shader atmosphere */
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   EDGE-TO-EDGE FULL-SCREEN VIDEO LAYER
+   Feathered background bounds allow Velaris to emerge on left/right while
+   protecting person, suit and face from any tinting.
+   ========================================================================== */
+
+.hero-fullscreen-video-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-fullscreen-video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  /* Feathered radial mask: 100% solid in center protecting avatar, soft feather on outer sides */
+  -webkit-mask-image: radial-gradient(ellipse 65% 85% at 50% 45%, #000 45%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.28) 80%, transparent 98%);
+  mask-image: radial-gradient(ellipse 65% 85% at 50% 45%, #000 45%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.28) 80%, transparent 98%);
+}
+
+/* Dedicated Video Controls Safe Slot (Independent from text layout, centered at bottom safe area) */
+.hero-video-controls-safe-slot {
+  position: absolute;
+  bottom: clamp(16px, 2.5vh, 24px);
+  bottom: max(clamp(16px, 2.5vh, 24px), env(safe-area-inset-bottom, 16px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  pointer-events: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-video-controls-bar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(4, 9, 20, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(59, 130, 246, 0.42);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.65), 0 0 16px rgba(37, 99, 235, 0.22), inset 0 1px 1px rgba(255, 255, 255, 0.28);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-video-controls-bar:hover {
+  border-color: rgba(96, 165, 250, 0.65);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(59, 130, 246, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.video-ctrl-btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: none;
+  color: var(--text-white);
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.video-ctrl-btn:hover,
+.video-ctrl-btn:focus-visible {
+  color: var(--blue-sky);
+  background: rgba(37, 99, 235, 0.3);
+}
+
+.video-ctrl-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ==========================================================================
+   HERO TYPOGRAPHY OVERLAY (ABOVE OPAQUE VIDEO LAYER)
+   Enlarged scale hierarchy: SHIVAM & SINGH (+20-30% further, framing the person),
+   greeting (+20-25%), role, supporting line, action buttons.
+   ========================================================================== */
+
+.hero-typography-stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: clamp(24px, 4.5vh, 52px) clamp(24px, 4.5vw, 64px) clamp(44px, 6vh, 68px);
+}
+
+/* Desktop default: mobile companion name row hidden */
+.hero-mobile-only {
+  display: none !important;
+}
+
+/* Left Column: Greeting, SHIVAM, Role, Supporting Line, CTAs */
+.hero-column-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 560px;
+  height: 100%;
+}
+
+.hero-top-group {
+  display: flex;
+  flex-direction: column;
+  /* Moved down to accommodate the top-left SS logo link with zero collision */
+  padding-top: clamp(56px, 7vh, 84px);
+}
+
+/* Enlarged Greeting (~20-25% larger, handwritten style) */
+.hero-greeting-text {
+  font-family: var(--font-script);
+  font-size: clamp(2.6rem, 3.8vw, 4.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.08;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.02em;
+  transform: rotate(-3deg);
+  transform-origin: left bottom;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+}
+
+/* Enlarged Luminous Electric Blue Name SHIVAM (Enlarged +25%, framing person) */
+.hero-name-blue {
+  font-family: var(--font-hero-name);
+  font-size: clamp(7.6rem, 12.8vw, 14.5rem);
+  line-height: 0.86;
+  letter-spacing: 0.03em;
+  margin: 0;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #b8d4ff 0%, #3b82f6 45%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 38px rgba(59, 130, 246, 0.7)) drop-shadow(0 4px 18px rgba(0, 0, 0, 0.85));
+}
+
+/* Lower-Left Safe Area: Role & CTAs */
+.hero-bottom-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: 8px;
+}
+
+/* Enlarged Role Heading (~25-35% larger) */
+.hero-role-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.95rem, 2.7vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.12;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95);
+}
+
+/* Enlarged Supporting Line (~15-20% larger) */
+.hero-supporting-line {
+  font-size: clamp(1.05rem, 1.25vw, 1.22rem);
+  font-weight: 500;
+  color: var(--text-slate);
+  margin: 0 0 4px 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+.hero-actions-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  pointer-events: auto;
+}
+
+/* Right Column: Balanced SINGH lifted into mid-lower right composition, shifted right to frame avatar */
+.hero-column-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+  padding-bottom: clamp(140px, 20vh, 240px);
+  margin-right: 0;
+  transform: translateX(clamp(14px, 2.4vw, 42px));
+}
+
+/* Enlarged Luminous Electric Blue Name SINGH (Enlarged +25%, framing person) */
+.hero-name-singh {
+  font-family: var(--font-hero-name);
+  font-size: clamp(7.6rem, 12.8vw, 14.5rem);
+  line-height: 1.08;
+  padding-block: 0.04em;
+  letter-spacing: 0.03em;
+  margin: 0;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #b8d4ff 0%, #3b82f6 45%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 38px rgba(59, 130, 246, 0.7)) drop-shadow(0 4px 18px rgba(0, 0, 0, 0.85));
+  text-align: right;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT & SAFE-AREA PROTECTION
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .hero-name-blue,
+  .hero-name-singh {
+    font-size: clamp(4.8rem, 9.2vw, 7.8rem);
+  }
+
+  .hero-column-right {
+    padding-bottom: clamp(52px, 8vh, 88px);
+  }
+}
+
+/* Mobile Contrast Scrim: localized lower gradient behind role/tagline text crossing the white turtleneck */
+.hero-mobile-scrim {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 100svh;
+    height: auto;
+    justify-content: flex-start;
+  }
+
+  .hero-mobile-scrim {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(4, 9, 22, 0.4) 0%,
+      transparent 24%,
+      transparent 46%,
+      rgba(4, 9, 22, 0.65) 68%,
+      rgba(4, 9, 22, 0.94) 96%
+    );
+  }
+
+  .hero-fullscreen-video-el {
+    object-position: center 38%;
+  }
+
+  .hero-typography-stage {
+    min-height: 100svh;
+    height: auto;
+    padding: max(16px, env(safe-area-inset-top, 16px)) 16px clamp(76px, 10vh, 92px) 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero-column-left {
+    min-height: calc(100svh - clamp(76px, 10vh, 92px) - max(16px, env(safe-area-inset-top, 16px)));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Clear the fixed logo (top-left) and Menu (top-right) */
+  .hero-top-group {
+    padding-top: clamp(68px, 9vh, 84px);
+    width: 100%;
+  }
+
+  /* Top identity on mobile: Greeting + Coordinated Name Layout */
+  .hero-mobile-name-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+    width: 100%;
+    padding-top: 4px;
+  }
+
+  .hero-mobile-only {
+    display: inline-block !important;
+  }
+
+  .hero-column-right {
+    display: none; /* Merged into coordinated mobile layout */
+  }
+
+  /* Meaningful, readable scale fitting cleanly in negative space beside avatar */
+  .hero-name-blue,
+  .hero-name-singh {
+    font-size: clamp(2.2rem, 10.8vw, 3.2rem);
+    line-height: 0.94;
+    letter-spacing: 0.02em;
+    filter: drop-shadow(0 0 24px rgba(59, 130, 246, 0.65)) drop-shadow(0 3px 12px rgba(0, 0, 0, 0.95));
+  }
+
+  .hero-greeting-text {
+    font-size: clamp(1.75rem, 6.2vw, 2.5rem);
+    margin-bottom: 2px;
+  }
+
+  /* Protected lower safe area: Localized translucent backing over video */
+  .hero-bottom-group {
+    position: relative;
+    z-index: 2;
+    padding: 14px 14px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(4, 9, 22, 0.35) 0%, rgba(4, 9, 22, 0.82) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(59, 130, 246, 0.18);
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .hero-role-title {
+    font-size: clamp(1.4rem, 5.2vw, 1.75rem);
+    line-height: 1.15;
+  }
+
+  .hero-supporting-line {
+    font-size: clamp(0.88rem, 3.2vw, 1.02rem);
+    color: #cbd5e1;
+  }
+
+  .hero-actions-container {
+    gap: 10px;
+  }
+
+  .hero-actions-container .blue-glass-btn {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 130px;
+    padding: 11px 14px;
+    font-size: 0.86rem;
+  }
+
+  /* Mobile dedicated safe slot sits cleanly at bottom center with safe-area protection */
+  .hero-video-controls-safe-slot {
+    bottom: max(14px, env(safe-area-inset-bottom, 14px));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero-video-controls-bar {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-fullscreen-video-el {
+    object-position: center 28%;
+  }
+
+  .hero-name-blue,
+  .hero-name-singh {
+    font-size: clamp(2.4rem, 10vw, 2.8rem);
+  }
+
+  .hero-role-title {
+    font-size: 1.25rem;
+  }
+
+  .hero-actions-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-actions-container .blue-glass-btn {
+    flex: 1 1 100%;
+    min-width: 0;
+    padding: 9px 12px;
+    font-size: 0.82rem;
+  }
+
+  .hero-video-controls-safe-slot {
+    bottom: max(10px, env(safe-area-inset-bottom, 10px));
+  }
+}
+
+/* Short screens / landscape heights */
+@media (max-height: 600px) {
+  .hero-section {
+    min-height: 560px;
+    height: auto;
+  }
+
+  .hero-typography-stage {
+    min-height: 560px;
+    height: auto;
+  }
+
+  .hero-column-left {
+    min-height: 480px;
+  }
+}

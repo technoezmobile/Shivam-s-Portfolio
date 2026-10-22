@@ -1,0 +1,369 @@
+/* ==========================================================================
+   CREATOR UNIVERSE & PERSONAL FILM STYLING (CORRECTED LAYOUT)
+   ========================================================================== */
+
+.creator-section {
+  position: relative;
+  width: 100%;
+  padding: var(--section-padding-v) 5%;
+  box-sizing: border-box;
+  background-color: var(--bg-surface-1);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.creator-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text-white);
+  margin: 0;
+}
+
+/* 4 Creator Channel Cards Grid */
+.creator-channels-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 42px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.channel-card-item {
+  display: flex;
+}
+
+.channel-card-link {
+  position: relative;
+  width: 100%;
+  padding: 24px 22px;
+  border-radius: 18px;
+  background: var(--bg-surface-card);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  text-decoration: none;
+  transition: all 0.26s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.channel-card-link:hover {
+  transform: translateY(-3px);
+  border-color: rgba(96, 165, 250, 0.55);
+  background: var(--bg-surface-card-hover);
+  box-shadow: 0 14px 34px rgba(37, 99, 235, 0.22);
+}
+
+.channel-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.channel-brand-icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(30, 58, 138, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-sky);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.channel-brand-icon img { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+.channel-card-link:hover .channel-brand-icon {
+  background: var(--blue-primary);
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+.channel-category-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--blue-sky);
+  background: rgba(59, 130, 246, 0.12);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.channel-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.channel-name {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.channel-handle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.channel-tagline {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-slate);
+  margin: 0;
+}
+
+.channel-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue-sky);
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ==========================================================================
+   PERSONAL FILM (THUMBNAIL ON LEFT, DETAILS ON RIGHT AT DESKTOP)
+   ========================================================================== */
+
+.journey-film-container {
+  position: relative;
+  border-radius: 22px;
+  background: rgba(8, 14, 26, 0.75);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6);
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+/* 16:9 Left Player / Thumbnail Box */
+.journey-player-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #030712;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.journey-thumbnail-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #030712;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  outline: none;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.journey-thumbnail-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+  z-index: 1;
+}
+
+.journey-thumbnail-card:hover .journey-thumbnail-img {
+  transform: scale(1.05);
+  filter: brightness(1.06);
+}
+
+.journey-preview-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  pointer-events: none;
+}
+
+.journey-play-glass-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(8, 16, 36, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(59, 130, 246, 0.65);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 24px rgba(37, 99, 235, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease, background 0.24s ease;
+  outline: none;
+}
+
+.journey-play-glass-btn:hover {
+  transform: scale(1.1);
+  background: rgba(29, 78, 216, 0.9);
+  box-shadow: 0 0 32px rgba(59, 130, 246, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.journey-play-glass-btn:focus-visible {
+  outline: 2px solid var(--blue-sky);
+  outline-offset: 3px;
+}
+
+.journey-thumb-text {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(4, 9, 22, 0.82);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+/* Unobtrusive notification for restricted embedding */
+.journey-playback-notice {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(8, 14, 28, 0.92);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  color: #fecaca;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+  z-index: 5;
+}
+
+.notice-icon {
+  flex-shrink: 0;
+  color: #f87171;
+}
+
+.notice-msg {
+  line-height: 1.35;
+}
+
+.journey-iframe-wrap,
+.journey-iframe-mount {
+  width: 100%;
+  height: 100%;
+}
+
+.journey-iframe-mount iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.journey-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Right Details Meta Block */
+.journey-film-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.journey-date-badge {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--blue-sky);
+  text-transform: uppercase;
+}
+
+.journey-film-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.journey-caption {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-slate);
+  margin: 0 0 8px 0;
+}
+
+.journey-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .creator-channels-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .journey-film-container {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 22px;
+  }
+
+  .creator-channels-list {
+    grid-template-columns: 1fr;
+  }
+
+  .creator-section {
+    padding: var(--section-padding-v) 4%;
+  }
+}
+
+.journey-local-video { display: block; width: 100%; height: 100%; object-fit: contain; background: #030814; }
+.journey-preview-overlay .journey-thumbnail-img { z-index: 0; }
+.journey-native-play { z-index: 2; pointer-events: auto; }
+.journey-player-stage { aspect-ratio: 16 / 9; height: auto; overflow: hidden; border-radius: 16px; }
+.journey-film-container:hover { transform: none; }

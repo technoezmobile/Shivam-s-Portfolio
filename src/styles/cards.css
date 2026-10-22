@@ -1,0 +1,90 @@
+/* ==========================================================================
+   INTERACTIVE 3D CARDS & TRAVELING BORDER SYSTEM
+   - Crisp, elegant multi-tone blue spectrum border at rest (zero GPU spinning load)
+   - Dynamic traveling spin activated smoothly on :hover and :focus-within
+   - Highly optimized composite-only transforms
+   ========================================================================== */
+
+.card-glass-interactive {
+  position: relative;
+  background-color: rgba(7, 12, 24, 0.92);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 1px rgba(255, 255, 255, 0.12);
+  transition: 
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  isolation: isolate;
+  z-index: 1;
+}
+
+/* Multi-Tone Blue-Spectrum Gradient Border (Static at rest, zero background CPU/GPU churn) */
+.card-glass-interactive::before {
+  content: '';
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 45deg,
+    #1d4ed8 0deg,
+    #2563eb 60deg,
+    #06b6d4 120deg,
+    #93c5fd 180deg,
+    #6366f1 240deg,
+    #3b82f6 300deg,
+    #1d4ed8 360deg
+  );
+  opacity: 0.42;
+  transition: opacity 0.35s ease, filter 0.35s ease;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Inner Navy Face Layer leaving precise 1.5px border */
+.card-glass-interactive::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  border-radius: inherit;
+  background-color: rgba(7, 12, 24, 0.94);
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.18);
+}
+
+/* Hover & Focus Pop-Out State: Spin animation ONLY runs on active interaction */
+.card-glass-interactive:hover,
+.card-glass-interactive:focus-within {
+  transform: translateY(-6px) scale(1.018);
+  box-shadow: 
+    0 24px 50px rgba(0, 0, 0, 0.85),
+    0 0 35px rgba(37, 99, 235, 0.42),
+    0 0 12px rgba(6, 182, 212, 0.3);
+  z-index: 10;
+}
+
+.card-glass-interactive:hover::before,
+.card-glass-interactive:focus-within::before {
+  opacity: 0.96;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
+  animation: cardBorderSpin 4.5s linear infinite;
+}
+
+@keyframes cardBorderSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reduced Motion: Static Borders, no 3D pop */
+@media (prefers-reduced-motion: reduce) {
+  .card-glass-interactive::before {
+    animation: none !important;
+    opacity: 0.45 !important;
+  }
+  .card-glass-interactive:hover {
+    transform: none !important;
+  }
+}
